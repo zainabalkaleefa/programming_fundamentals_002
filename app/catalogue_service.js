@@ -22,25 +22,56 @@ const catalogue = [
   "The Origin of Species by Charles Darwin"
 ];
 
-function countBooks() {
+function countBooks(array) {
   // Your code here
+return array.length;
 }
 
 function checkBook(book) {
   // Your code here
-}
+  if(catalogue.includes(book)) {return true;}
+else {return false;}
+  }
 
+  
 function countBooksByFirstLetter(letter) {
+
   // Your code here
+  let firstLetters = [];
+  let num = 0;
+  for (let i=0; i<20; i++)
+  {
+   firstLetters.push(catalogue[i].charAt(0));
+  }
+for (let i=0; i<20;i++)
+{
+if (firstLetters[i]===letter){ num++;}
+}
+return num;
 }
 
 function countBooksByKeyword(keyword) {
   // Your code here
+  let num= 0;
+ let key= keyword.charAt(0).toUpperCase() + keyword.slice(1); ;
+  for (let i=0; i<20; i++){
+    if (catalogue[i].includes(key)) {num++;}
+  }
+  return num;
+  
 }
 
-function getBooksByAuthor(author) {
-  // Your code here
+
+ let list =[];
+ function getBooksByAuthor(author) {
+  for (let i=0;i<20;i++)
+  {
+   if (catalogue[i].indexOf(author) >=0) {list.push(catalogue[i]) ;}
+  }
+   return list;
+ 
 }
+
 
 module.exports = {
   countBooks,
